@@ -21,6 +21,12 @@ export default function SearchResults(){
         }
     }
 
+    const pokemonDef = {
+        name: searchResults?.name,
+        id: searchResults?.id,
+        sprites: searchResults?.sprites?.front_default
+    }
+
     useEffect(()=>{
         getSearchResults();
     },[searchQuery])
@@ -29,12 +35,15 @@ export default function SearchResults(){
     return (
         <section>
         <h1>Search Results for: {searchQuery}</h1>
-            <section className="flex">
-            {searchResults.map((pokemon)=> (
-                <PokemonCard key={pokemon.name} pokemonUrl={`https://pokeapi.co/api/v2/pokemon/${pokemon.name}`}/>
-            ))}
-        </section>
+            <PokemonCard pokemonDef={pokemonDef}/>
         </section>
 
     )
 }
+
+// <section>
+//   <h1>Search Results for: {searchQuery}</h1>
+//   {searchResults.map((pokemon)=> (
+//     <PokemonCard key={pokemon.name} pokemonUrl={`https://pokeapi.co/api/v2/pokemon/${pokemon.name}`}/>
+//   ))}
+// </section>

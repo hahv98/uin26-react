@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
-export default function PokemonCard({pokemonUrl, classN}){
+export default function PokemonCard({pokemonUrl, classN, pokemonDef}){
     const [pokemon, setPokemon] = useState()
     const getPokemon = async() =>{
         const response = await fetch(pokemonUrl)
@@ -9,8 +9,9 @@ export default function PokemonCard({pokemonUrl, classN}){
     }
     
     useEffect(()=>{
+        pokemonDef ? setPokemon(pokemonDef) :
         getPokemon()
-    },[])
+    },[pokemonDef])
     
     return (
        
