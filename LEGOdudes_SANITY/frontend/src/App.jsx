@@ -6,6 +6,7 @@ import { Route, Routes } from 'react-router-dom'
 import Header from './components/Header.jsx'
 import Nav from './components/Nav.jsx'
 import CategoryTitle from './components/CategoryTitle.jsx'
+import CategoryPage from './components/CategoryPage.jsx'
 import Products from './components/Products.jsx'
 import Cart from './components/Cart.jsx'
 import Layout from './components/Layout.jsx'
@@ -41,11 +42,7 @@ function App() {
     <Layout setIsOpen={setIsOpen} cartQuantity={cartQuantity} isOpen={isOpen} cart={cart} setCart={setCart} totalSum={totalSum}>
       <Routes>
         <Route index element={<Page />} />
-        <Route path='city' element={<CategoryTitle title='City'/>} />
-        <Route path='ninjago' element={<CategoryTitle title='Ninjago'/>} />
-        <Route path='castles-and-knights' element={<CategoryTitle title='Castles & Knights'/>} />
-        <Route path='marine-and-pirates' element={<CategoryTitle title='Marine & Pirates'/>} />
-        <Route path='movie-characters' element={<CategoryTitle title='Movie characters'/>} />
+        <Route path="kategori/:slug" element={<CategoryPage />} />
       </Routes>
     </Layout>
   )

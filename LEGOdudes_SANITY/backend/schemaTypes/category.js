@@ -9,10 +9,22 @@ const category = {
             type: "string"
         },
         {
+            name: 'slug',
+            title: 'Slug',
+            type: 'slug',
+            options: {
+                source: 'categoryname',
+                slugify: input => input
+                    .toLowerCase()
+                    .replace(/\s+/g, '-')
+                    .slice(0, 100)
+            }
+        },
+        {
             name: "categoryimage",
             title: "Kategoribilde",
             type: "image"
-        }
+        },
     ]
 }
 
